@@ -133,7 +133,12 @@ class BankAccount:
         WithdrawalException
             When amount is negative, NaN or > the account balance
         """
-        pass
+        try:
+            oldself = self.balance
+            if self.balance != oldself-amount:
+                raise WithdrawalException
+        except:
+            raise WithdrawalException
 
 
 if __name__ == '__main__':
