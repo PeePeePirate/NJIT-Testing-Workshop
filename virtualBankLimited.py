@@ -110,7 +110,13 @@ class BankAccount:
         InternalDepositException
             when amount is negative or NaN
         """
-        pass
+        if amount > 0:
+            new_balance = (float(self.balance)) + amount
+            self.balance = new_balance
+            return self.balance
+        else:
+            raise InternalDepositException
+        
 
     def withdraw(self, amount):
         # TODO implement function

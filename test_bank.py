@@ -25,3 +25,10 @@ def test_view_balance_unsuccessful():
     with pytest.raises(BalanceRetrievalException):
         # Act - do the action that we are testing
         bank_account.view_balance()
+
+def test_deposit_function():
+    bank_account = BankAccount(username='name', balance=100)
+
+    bank_account.deposit(10)
+
+    assert bank_account.view_balance() == 110
